@@ -15,9 +15,9 @@ The backend is built using **FastAPI** and follows a modular architecture separa
 
 ---
 
-# System Architecture Overview
+## System Architecture Overview
 
-The system follows a layered architecture to separate AI logic from application logic.
+The system follows a layered architecture to separate AI processing from application logic.
 
 System Flow:
 
@@ -35,70 +35,71 @@ Response Parser
 ↓  
 Database Storage  
 ↓  
-JSON Response
+JSON Response  
 
 Main Components:
 
-- **Routes** → Handles API endpoints  
-- **Services** → AI integration and business logic  
-- **Prompts** → Prompt engineering for AI tasks  
-- **Database** → SQLAlchemy models for persistence  
-- **Utils** → Logging and helper functions  
+- Routes → API endpoints  
+- Services → AI integration and business logic  
+- Prompts → Prompt engineering  
+- Database → SQLAlchemy models  
+- Utils → Logging and helpers  
 
 ---
 
-# Project Structure
+## Project Structure
 
-
+```
 rayeva-ai-system
 │
 ├── backend
-│ ├── main.py
+│   ├── main.py
 │
-│ ├── routes
-│ │ ├── category_routes.py
-│ │ └── proposal_routes.py
+│   ├── routes
+│   │   ├── category_routes.py
+│   │   └── proposal_routes.py
 │
-│ ├── services
-│ │ ├── ai_category_service.py
-│ │ └── ai_proposal_service.py
+│   ├── services
+│   │   ├── ai_category_service.py
+│   │   └── ai_proposal_service.py
 │
-│ ├── prompts
-│ │ ├── category_prompt.py
-│ │ └── proposal_prompt.py
+│   ├── prompts
+│   │   ├── category_prompt.py
+│   │   └── proposal_prompt.py
 │
-│ ├── database
-│ │ ├── db.py
-│ │ ├── models.py
-│ │ └── schemas.py
+│   ├── database
+│   │   ├── db.py
+│   │   ├── models.py
+│   │   └── schemas.py
 │
-│ ├── utils
-│ │ └── logger.py
+│   ├── utils
+│   │   └── logger.py
 │
-│ └── logs
-│ └── ai_logs.txt
+│   └── logs
+│       └── ai_logs.txt
 │
 ├── requirements.txt
 ├── README.md
 └── .env.example
-
+```
 
 ---
 
-# AI Prompt Design
+## AI Prompt Design
 
-AI modules rely on carefully designed prompts to ensure structured and reliable outputs.
+The AI modules rely on carefully designed prompts to ensure structured outputs.
 
-The prompts instruct the AI model to:
+The prompts instruct the model to:
 
-- Use predefined product categories  
-- Generate structured JSON responses  
-- Suggest SEO tags and sustainability filters  
-- Respect business constraints such as budget limits  
+- Use predefined product categories
+- Generate structured JSON responses
+- Suggest SEO tags
+- Suggest sustainability filters
+- Respect business constraints such as budget limits
 
-Example prompt logic for category generation:
+Example prompt logic:
 
-
+```
 You are an AI product catalog assistant for a sustainable commerce platform.
 
 Classify the product into one of the allowed categories and generate metadata.
@@ -116,25 +117,25 @@ Return ONLY valid JSON with:
 category
 sub_category
 tags
-sustainability filters
+sustainability
+```
 
-
-This prompt design ensures consistent AI responses that can be parsed and stored safely in the database.
+This prompt ensures consistent AI responses that can be safely parsed and stored in the database.
 
 ---
 
-# Module 1 — AI Auto Category & Tag Generator
+## Module 1 — AI Auto Category & Tag Generator
 
 This module automatically generates product metadata from product descriptions.
 
 ### Features
 
-- Auto-assign primary category from predefined list  
-- Suggest sub-category  
-- Generate SEO tags (5–10 tags)  
-- Suggest sustainability filters such as plastic-free, biodegradable, recycled etc.  
-- Return structured JSON output  
-- Store results in database  
+- Auto-assign primary category
+- Suggest sub-category
+- Generate SEO tags (5–10 tags)
+- Suggest sustainability filters
+- Return structured JSON output
+- Store results in database
 
 ### Example Input
 
@@ -143,7 +144,11 @@ This module automatically generates product metadata from product descriptions.
   "name": "Bamboo Toothbrush",
   "description": "Eco friendly biodegradable bamboo toothbrush"
 }
-Example Output
+```
+
+### Example Output
+
+```json
 {
   "category": "Personal Care",
   "sub_category": "Oral Care",
@@ -159,31 +164,36 @@ Example Output
     "biodegradable"
   ]
 }
+```
 
 The generated metadata is stored in the database to automate product catalog management.
 
-Module 2 — AI B2B Proposal Generator
+---
+
+## Module 2 — AI B2B Proposal Generator
 
 This module generates sustainable corporate gifting proposals based on budget constraints.
 
-Features
+### Features
 
-Suggested sustainable product mix
+- Suggested sustainable product mix
+- Budget allocation within provided limit
+- Estimated cost breakdown
+- Sustainability impact summary
+- Structured JSON output
 
-Budget allocation within provided limit
+### Example Input
 
-Estimated cost breakdown
-
-Sustainability impact positioning summary
-
-Structured JSON output
-
-Example Input
+```json
 {
   "budget": 50000,
   "event": "Corporate sustainability event"
 }
-Example Output
+```
+
+### Example Output
+
+```json
 {
   "products": [
     {"name": "Reusable Water Bottles", "quantity": 200, "cost": 10000},
@@ -191,14 +201,19 @@ Example Output
     {"name": "Sustainable Plant Kits", "quantity": 100, "cost": 12000}
   ],
   "total_cost": 45000,
-  "impact_summary": "This proposal promotes reusable and eco friendly products, reducing plastic waste and supporting sustainable practices."
+  "impact_summary": "This proposal promotes reusable and eco friendly products, reducing plastic waste."
 }
-Architecture for Additional Modules
-Module 3 — AI Impact Reporting Generator
+```
 
-Architecture concept:
+---
 
+## Architecture for Additional Modules
 
+### Module 3 — AI Impact Reporting Generator
+
+Architecture Concept
+
+```
 Order Data
 ↓
 Impact Calculation Engine
@@ -206,23 +221,21 @@ Impact Calculation Engine
 AI Impact Summary Generator
 ↓
 Impact Report
-
+```
 
 This module would estimate environmental metrics such as:
 
-Plastic saved
+- Plastic saved
+- Carbon emissions avoided
+- Local sourcing benefits
 
-Carbon emissions avoided
+---
 
-Local sourcing benefits
+### Module 4 — AI WhatsApp Support Bot
 
-The generated impact report would be stored with the order data.
+Architecture Concept
 
-Module 4 — AI WhatsApp Support Bot
-
-Architecture concept:
-
-
+```
 Customer (WhatsApp)
 ↓
 WhatsApp API / Twilio
@@ -236,55 +249,75 @@ Business Logic
 Database
 ↓
 Response to Customer
-
+```
 
 Possible capabilities:
 
-Order status queries
+- Order status queries
+- Return policy assistance
+- Escalation of refund issues
+- Conversation logging
 
-Return policy assistance
+---
 
-Escalation of refund issues
+## API Endpoints
 
-Conversation logging
+Generate Category
 
-API Endpoints
-Generate Product Category
+```
 POST /generate-category
+```
 
-Generates category, tags and sustainability filters.
+Generate Proposal
 
-Generate B2B Proposal
+```
 POST /generate-proposal
+```
 
-Generates sustainable product proposal within a given budget.
+---
 
-Technical Features
+## Technical Features
 
-Structured JSON AI outputs
+- Structured JSON AI outputs
+- Prompt and response logging
+- Environment-based API key management
+- Clean separation of AI and business logic
+- Error handling and validation
 
-Prompt and response logging
+---
 
-Environment-based API key management using .env
+## Tech Stack
 
-Clean separation of AI logic and application logic
+Backend: FastAPI  
+Database: SQLite with SQLAlchemy  
+AI Integration: LLM API  
+Environment Management: python-dotenv  
 
-Error handling and validation
+---
 
-Tech Stack
+## Running the Project
 
-Backend: FastAPI
-Database: SQLite + SQLAlchemy
-AI Integration: LLM API
-Environment Management: python-dotenv
-
-Running the Project
 Install dependencies
-pip install -r requirements.txt
-Run the server
-uvicorn backend.main:app --reload
-Open API documentation
-http://127.0.0.1:8000/docs
-Author
 
-Nirbhay Tiwari
+```
+pip install -r requirements.txt
+```
+
+Run the server
+
+```
+uvicorn backend.main:app --reload
+```
+
+Open API documentation
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## Author
+
+Nirbhay Tiwari  
+Full Stack / AI Intern Candidate
