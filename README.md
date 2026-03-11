@@ -62,15 +62,15 @@ Features implemented:
 
 Example Input
 
-```json
-{
+
+```json{
 "name":"Bamboo Toothbrush",
 "description":"Eco friendly biodegradable bamboo toothbrush"
 }
-
+```
 Example Output
 
-{
+```{
 "category":"Personal Care",
 "sub_category":"Oral Care",
 "tags":[
