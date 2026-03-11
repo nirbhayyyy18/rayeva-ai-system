@@ -102,7 +102,7 @@ Features implemented:
 
 Example Input
 
-{
+```json{
 "budget":50000,
 "event":"Corporate sustainability event"
 }
@@ -118,7 +118,7 @@ Example Output
 "total_cost":45000,
 "impact_summary":"This proposal promotes reusable and eco friendly products, reducing plastic waste and supporting sustainable practices."
 }
-
+```
 
 Architecture for Additional Modules
 Module 3 — AI Impact Reporting Generator
