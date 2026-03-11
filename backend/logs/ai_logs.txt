@@ -1,0 +1,196 @@
+
+
+
+
+TIME: 2026-03-11 19:11:45.435716
+PROMPT:
+
+Choose primary category ONLY from this list:
+
+['Personal Care', 'Home', 'Kitchen', 'Office', 'Stationery', 'Packaging']
+
+Product name: Bamboo Toothbrush
+
+Description: eco friendly biodegradable toothbrush
+
+Return JSON only:
+
+{
+"category":"",
+"sub_category":"",
+"tags":[],
+"sustainability":[]
+}
+
+RESPONSE:```
+{
+"category":"Personal Care",
+"sub_category":"",
+"tags":[],
+"sustainability":[]
+}
+```
+
+TIME: 2026-03-11 19:15:31.584662
+PROMPT:
+
+Choose primary category ONLY from this list:
+
+['Personal Care', 'Home', 'Kitchen', 'Office', 'Stationery', 'Packaging']
+
+Product name: Bamboo Toothbrush
+
+Description: eco friendly biodegradable toothbrush
+
+Return JSON only:
+
+{
+"category":"",
+"sub_category":"",
+"tags":[],
+"sustainability":[]
+}
+
+RESPONSE:```json
+{
+"category":"Personal Care",
+"sub_category":"",
+"tags":[],
+"sustainability":[]
+}
+```
+
+TIME: 2026-03-11 19:16:56.452602
+PROMPT:
+
+Choose primary category ONLY from this list:
+
+['Personal Care', 'Home', 'Kitchen', 'Office', 'Stationery', 'Packaging']
+
+Product name: Bamboo Toothbrush
+
+Description: eco friendly biodegradable toothbrush
+
+Return JSON only:
+
+{
+"category":"",
+"sub_category":"",
+"tags":[],
+"sustainability":[]
+}
+
+RESPONSE:```json
+{
+"category":"Personal Care",
+"sub_category":"",
+"tags":[],
+"sustainability":[]
+}
+```
+
+TIME: 2026-03-11 19:19:41.049639
+PROMPT:
+
+Return ONLY JSON.
+
+Create a sustainable gifting proposal.
+
+Budget: 50000
+
+Event: Corporate gifting
+
+Audience: Employees
+
+Return JSON format:
+
+{
+"products":[{"name":"","quantity":0,"cost":0}],
+"total_cost":0,
+"impact_summary":""
+}
+
+RESPONSE:```
+{
+  "products": [
+    {
+      "name": "Reusable Water Bottles",
+      "quantity": 200,
+      "cost": 10000
+    },
+    {
+      "name": "Eco-Friendly Notebooks",
+      "quantity": 200,
+      "cost": 8000
+    },
+    {
+      "name": "Sustainable Plant Kits",
+      "quantity": 100,
+      "cost": 12000
+    },
+    {
+      "name": "Energy-Efficient Power Banks",
+      "quantity": 100,
+      "cost": 11000
+    },
+    {
+      "name": "Bamboo Pens",
+      "quantity": 200,
+      "cost": 4000
+    },
+    {
+      "name": "Seed Bombs",
+      "quantity": 200,
+      "cost": 2000
+    }
+  ],
+  "total_cost": 49000,
+  "impact_summary": "This sustainable gifting proposal promotes eco-friendly practices, reduces waste, and supports employee well-being. The selected products encourage employees to adopt environmentally responsible habits, enhancing the company's social responsibility and reputation."
+}
+```
+
+TIME: 2026-03-11 19:21:58.123955
+PROMPT:
+
+You are an AI catalog assistant.
+
+Choose primary category ONLY from this list:
+['Personal Care', 'Home', 'Kitchen', 'Office', 'Stationery', 'Packaging']
+
+Product Name: Bamboo Toothbrush
+
+Description: eco friendly biodegradable toothbrush
+
+Generate:
+1 primary category
+1 sub-category
+5 to 10 SEO tags
+sustainability filters
+
+Sustainability filters should be chosen from:
+plastic-free
+compostable
+vegan
+recycled
+biodegradable
+zero-waste
+
+Return ONLY valid JSON.
+
+JSON format:
+
+{
+"category":"",
+"sub_category":"",
+"tags":[],
+"sustainability":[]
+}
+
+RESPONSE:```json
+{
+"category": "Personal Care",
+"sub_category": "Oral Care",
+"tags": ["Bamboo Toothbrush", "Eco Friendly", "Biodegradable", "Sustainable Living", "Zero Waste", "Dental Care", "Toothbrush"],
+"sustainability": ["biodegradable", "plastic-free", "zero-waste"]
+}
+```
