@@ -85,7 +85,7 @@ Example Output
 "biodegradable"
 ]
 }
-
+```
 The generated data is stored in the database for catalog automation.
 
 Module 2 — AI B2B Proposal Generator
@@ -118,6 +118,8 @@ Example Output
 "total_cost":45000,
 "impact_summary":"This proposal promotes reusable and eco friendly products, reducing plastic waste and supporting sustainable practices."
 }
+
+
 Architecture for Additional Modules
 Module 3 — AI Impact Reporting Generator
 
@@ -138,6 +140,8 @@ This module would estimate environmental impact metrics such as:
 • Local sourcing benefits
 
 The results would be stored with the order record.
+
+
 
 Module 4 — AI WhatsApp Support Bot
 
@@ -160,6 +164,7 @@ Possible actions:
 • Escalation for refund issues
 • Conversation logging
 
+
 Technical Features
 
 • Structured JSON AI outputs
@@ -168,12 +173,14 @@ Technical Features
 • Clear separation of AI logic and application logic
 • Error handling and validation
 
+
 Tech Stack
 
 Backend: FastAPI
 Database: SQLite with SQLAlchemy
 AI Integration: LLM API
 Environment Management: python-dotenv
+
 
 Running the Project
 
